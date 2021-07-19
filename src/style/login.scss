@@ -1,0 +1,21 @@
+.login-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 100%;
+    grid-template-rows: 1fr;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+
+    .right-column {
+        background-size: cover;
+    }
+
+    .left-column {
+        background-size: cover;
+    }
+}
+
+.auth-center {
+    margin: 0px 550px;
+}
