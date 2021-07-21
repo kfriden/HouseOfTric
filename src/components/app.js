@@ -8,6 +8,7 @@ import About from './about';
 import Members from './members';
 import Contact from './contact';
 import Login from './login';
+import Footer from './footer';
 
 
 export default class App extends Component {
@@ -21,7 +22,6 @@ export default class App extends Component {
     return (
       <div className='app'>
         <Router>
-          <div>
             <Navigation />
 
             <Switch>
@@ -32,7 +32,8 @@ export default class App extends Component {
               <Route exact path="/login" component={Login} />
               <Route component={NoMatch} />
             </Switch>
-          </div>
+
+            <Footer />
         </Router>
       </div>
     );
