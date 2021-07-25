@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Auth from './auth';
 import Juan from '../../static/assets/juan-auth.jpg';
 
 class Login extends Component {
@@ -9,7 +10,7 @@ class Login extends Component {
                     <img src={Juan} />
                 </div>
                 
-                <div className="auth-center">Login</div>
+                <Auth />
                 <div className="right-column">
                     <img src={Juan} />
                 </div>
