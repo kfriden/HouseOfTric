@@ -6,7 +6,7 @@ class Footer extends Component {
             <div className="footer-wrapper">
                 <h2 className="title">Come Look For Us On...</h2>
                 <div className="social-media-icons-wrapper">
-                    <a href="/" target="_blank"><i class="fab fa-tiktok"></i></a>
+                    <a href="/" target="_blank"><i className="fab fa-tiktok"></i></a>
                 </div>
             </div>
         );
