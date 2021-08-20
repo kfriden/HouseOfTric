@@ -8,6 +8,6 @@ class BlogListView(ListAPIView):
     serializer_class = BlogSerializer
 
 
-class BlogDetailView(ListAPIView):
+class BlogDetailView(RetrieveAPIView):
     queryset = Blog.objects.all()
     serializer_class = BlogSerializer
