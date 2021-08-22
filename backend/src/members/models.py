@@ -14,4 +14,4 @@ class Members(models.Model):
     description = models.CharField(max_length=200)
 
     def __str__(self):
-        return self.id
+        return self.birth_name

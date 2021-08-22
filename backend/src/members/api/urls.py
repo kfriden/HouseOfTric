@@ -2,6 +2,6 @@ from django.urls import path
 from .views import MembersListView, MembersDetailView
 
 urlpatterns = [
-    path('', MembersListView.as_view()),
-    path('<pk>', MembersDetailView.as_view())
+    path('members', MembersListView.as_view()),
+    path('members/<pk>', MembersDetailView.as_view())
 ]

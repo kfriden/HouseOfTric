@@ -7,6 +7,7 @@ import Home from './home';
 import About from './about';
 import Members from './members';
 import Blog from './blog';
+import BlogDetail from './blogDetail';
 import Contact from './contact';
 import Login from './login';
 import Footer from './footer';
@@ -30,6 +31,7 @@ export default class App extends Component {
               <Route exact path="/about" component={About} />
               <Route exact path="/members" component={Members} />
               <Route exact path="/blog" component={Blog} />
+              <Route exact path="/b/:slug" component={BlogDetail} />
               <Route exact path="/contact" component={Contact} />
               <Route exact path="/login" component={Login} />
               <Route component={NoMatch} />
