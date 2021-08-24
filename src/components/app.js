@@ -31,7 +31,7 @@ export default class App extends Component {
               <Route exact path="/about" component={About} />
               <Route exact path="/members" component={Members} />
               <Route exact path="/blog" component={Blog} />
-              <Route exact path="/b/:slug" component={BlogDetail} />
+              <Route exact path="/blog/:slug" component={BlogDetail} />
               <Route exact path="/contact" component={Contact} />
               <Route exact path="/login" component={Login} />
               <Route component={NoMatch} />
