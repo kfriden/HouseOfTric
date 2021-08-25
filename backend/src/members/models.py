@@ -8,7 +8,7 @@ class Members(models.Model):
     birth_name = models.CharField(max_length=120)
     quirk = models.CharField(max_length=50)
     age = models.IntegerField()
-    rank = models.IntegerField()
+    rank = models.CharField(max_length=120)
     location = models.CharField(max_length=120)
     villain_vigilante = models.CharField(max_length=15)
     description = models.CharField(max_length=200)
