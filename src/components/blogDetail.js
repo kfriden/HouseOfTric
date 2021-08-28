@@ -34,10 +34,9 @@ class BlogDetail extends Component {
             <div className="blog-container">
                 <div className="content-container">
                     <h1>{title}</h1>
-
+                </div>
             <div className="content">{content}</div>
             </div>
-      </div>
         );
     }
 }
