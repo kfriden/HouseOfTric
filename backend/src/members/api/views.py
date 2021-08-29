@@ -9,3 +9,5 @@ class MembersListView(ListAPIView):
 class MembersDetailView(RetrieveAPIView):
     queryset = Members.objects.all()
     serializer_class = MemberSerializer
+
+    

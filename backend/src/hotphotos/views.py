@@ -9,3 +9,10 @@ from .serializers import awsimageSerializer
 class awsimageView(viewsets.ModelViewSet):
     queryset = awsimage.objects.all()
     serializer_class = awsimageSerializer
+
+
+    
+   
+  
+
+
