@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
-import Group from '../../static/assets/2.jpg';
+import Card from './memberCard'
 
-class About extends Component {
+class Members extends Component {
   render() {
     return (
       <div>
         
-        Members will be listed here!
+        <Card />
       </div>
     );
   }
 }
 
-export default About;
+export default Members;
