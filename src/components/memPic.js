@@ -4,7 +4,7 @@ const MemPic = props => {
     console.log(props.imageUrl);
     return (
         <div>
-            <img src={props.imageUrl} />
+            <img className="member-image" src={props.imageUrl} />
         </div>
     )
 }
