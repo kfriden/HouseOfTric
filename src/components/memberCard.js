@@ -4,6 +4,10 @@ import MemPics from './memPics';
 class Card extends Component {
     constructor() {
         super();
+
+        this.state = {
+            memberItems: []
+          }
       
     }
 

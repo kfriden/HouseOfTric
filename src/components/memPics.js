@@ -7,7 +7,7 @@ class Picture extends Component {
         super();
 
         this.state = {
-            memberPics: []
+            memberPicData: []
           }
       
           this.getMemberPics = this.getMemberPics.bind(this);
@@ -16,13 +16,11 @@ class Picture extends Component {
     getMemberPics() {
         axios.get("http://127.0.0.1:8000/awsimage/").then(response => {
           console.log(response)
+          
           this.setState({
-            memberPics: response.data.forEach((item) => {
-                console.log(item.images);
-                return (<div>{item.images}</div>)
-                
-            })
-          });
+            
+            memberPicData: response.data
+          })
         })
         .catch(error => {
           console.log("getMemberPics error", error);
@@ -33,13 +31,13 @@ class Picture extends Component {
         this.getMemberPics();
       }
 
-  render() {
-    const pictures = this.state.memberPics.map(memberPic => {
-        return <MemPic key={memberPic.id} memberPic={memberPic} />;
-    })
+  render() { 
+    console.log("memberData", this.state.memberPicData);
     return (
         <div>
-            {pictures}
+            {this.state.memberPicData.map(memberPic => {
+        return <MemPic key={memberPic.id} imageUrl={memberPic.images} />;
+    })}
         </div>
     );
   }

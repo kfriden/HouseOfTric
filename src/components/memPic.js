@@ -1,10 +1,10 @@
 import React from 'react';
 
 const MemPic = props => {
-    console.log(props.images);
+    console.log(props.imageUrl);
     return (
         <div>
-            <img src={props.images} />
+            <img src={props.imageUrl} />
         </div>
     )
 }
