@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import MemPics from './memPics';
 import MemberInfo from './memberInfo';
 import axios from 'axios';
 
@@ -34,8 +33,7 @@ class Card extends Component {
             return <MemberInfo key={memberItem.id} memberItem={memberItem} />;
           })
         return (
-            <div>
-                <MemPics />
+            <div className="members">
                {memberRecords}
             </div>
         );
