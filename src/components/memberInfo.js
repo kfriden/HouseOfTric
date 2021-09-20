@@ -19,28 +19,24 @@ class MemberCard extends Component {
     
         } = this.props.memberItem;
         return (
-            <div>
-                    <img className="member-image" src={images} />
-                    <div className="member-info">
-                        <h2>{name}</h2>
-                        <h4>Birth Name: {birth_name}</h4>
-                        <h4>Quirk: {quirk}</h4>
-                        <h4>Age: {age}</h4>
-                        <h4>Rank: {rank}</h4>
-                        <h4>Location: {location}</h4>
-                        <h4>Villain/Vigilante: {villain_vigilante}</h4>
-                        <h4>Description: {description}</h4>
+                <div className="member">
+                <img className="member-image" src={images} />
+                    <div className="description">
+                        <h1>{name}</h1>
+                        <h3>Birth Name: {birth_name}</h3>
+                        <h3>Quirk: {quirk}</h3>
+                        <h3>Age: {age}</h3>
+                        <h3>Rank: {rank}</h3>
+                        <h3>Location: {location}</h3>
+                        <h3>Villain/Vigilante: {villain_vigilante}</h3>
+                        <h3>Description: {description}</h3>
                     </div>
-                </div> );
+                    
+                </div>
+                
+             );
     }
 }
-
-
-    
-
-            
-           
-    
 
 
 export default MemberCard; 
