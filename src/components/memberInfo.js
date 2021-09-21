@@ -20,8 +20,7 @@ class MemberCard extends Component {
         } = this.props.memberItem;
         return (
                 <div className="member">
-                <img className="member-image" src={images} />
-                    <div className="description">
+                    <div className="description subtitle">
                         <h1>{name}</h1>
                         <h3>Birth Name: {birth_name}</h3>
                         <h3>Quirk: {quirk}</h3>
@@ -31,7 +30,7 @@ class MemberCard extends Component {
                         <h3>Villain/Vigilante: {villain_vigilante}</h3>
                         <h3>Description: {description}</h3>
                     </div>
-                    
+                    <img className="member-image" src={images} />
                 </div>
                 
              );
