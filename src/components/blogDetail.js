@@ -31,11 +31,12 @@ class BlogDetail extends Component {
         } = this.state.blogItem;
         console.log("currentId", this.state.currentId)
         return (
-            <div className="blog-container">
-                <div className="content-container">
+            <div >
+                <div>
                     <h1>{title}</h1>
+                    <div className="content">{content}</div>
                 </div>
-            <div className="content">{content}</div>
+            
             </div>
         );
     }

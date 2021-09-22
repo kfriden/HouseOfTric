@@ -34,7 +34,7 @@ class Blog extends Component {
       return <BlogItem key={blogItem.id} blogItem={blogItem} />;
     })
     return (
-      <div>
+      <div className="blogs">
         
         {blogRecords}
       </div>

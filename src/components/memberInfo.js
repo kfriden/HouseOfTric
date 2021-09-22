@@ -18,17 +18,18 @@ class MemberCard extends Component {
             images
     
         } = this.props.memberItem;
+        
         return (
                 <div className="member">
                     <div className="description subtitle">
-                        <h1>{name}</h1>
-                        <h3>Birth Name: {birth_name}</h3>
-                        <h3>Quirk: {quirk}</h3>
-                        <h3>Age: {age}</h3>
-                        <h3>Rank: {rank}</h3>
-                        <h3>Location: {location}</h3>
-                        <h3>Villain/Vigilante: {villain_vigilante}</h3>
-                        <h3>Description: {description}</h3>
+                        <h1 className="top-height">{name}</h1>
+                        <h2>Birth Name: {birth_name}</h2>
+                        <h2>Quirk: {quirk}</h2>
+                        <h2>Age: {age}</h2>
+                        <h2>Rank: {rank}</h2>
+                        <h2>Location: {location}</h2>
+                        <h2>Villain/Vigilante: {villain_vigilante}</h2>
+                        <h2>Description: {description}</h2>
                     </div>
                     <img className="member-image" src={images} />
                 </div>
