@@ -6,7 +6,7 @@ import { Carousel } from 'react-responsive-carousel';
 export default class DemoCarousel extends Component {
     render() {
         return (
-            <Carousel>
+            <Carousel className="carousel">
                 <div>
                     <img src="assets/logo.jpg" />
                 </div>
@@ -14,7 +14,7 @@ export default class DemoCarousel extends Component {
                     <img src="assets/1.jpg" />
                 </div>
                 <div>
-                    <img src="assets/2.jpg" />
+                    <img src="assets/rewind2.jpg" />
                 </div>
                 <div>
                     <img src="assets/3.jpg" />
