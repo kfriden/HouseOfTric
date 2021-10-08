@@ -7,6 +7,10 @@ export default class Home extends Component {
     return (
         <div>
             <Carousel />
+            
+            <div className="empty">
+
+            </div>
             <PageContent />
         </div>
         

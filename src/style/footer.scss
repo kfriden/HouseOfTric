@@ -16,4 +16,12 @@
 .social-media-icons-wrapper {
     display: flex;
     font-size: 30px;
+    align-items: center;
+    justify-content: space-between;
+
+    img {
+        height: 60px;
+        width: 60px;
+        
+    }
 }

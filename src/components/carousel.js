@@ -6,7 +6,7 @@ import { Carousel } from 'react-responsive-carousel';
 export default class DemoCarousel extends Component {
     render() {
         return (
-            <Carousel className="carousel">
+            <Carousel infiniteLoop autoPlay className="carousel">
                 <div>
                     <img src="assets/logo.jpg" />
                 </div>

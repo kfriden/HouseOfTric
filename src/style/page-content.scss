@@ -4,9 +4,10 @@ p {
     display: flex;
     align-items: center;
     justify-content: center;
+    padding-right: 25px;
 }
 
-.text {
+.homepage {
     overflow-wrap: break-word;
     display: flex;
     flex-direction: column;
@@ -15,3 +16,9 @@ p {
     text-align: center;
     width: 100vw;
 }
+
+// .empty {
+//     width: 100vw;
+//     height: 100px;
+//     background-color: aqua;
+// }
