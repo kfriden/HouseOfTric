@@ -1,6 +1,6 @@
 .footer-wrapper {
     display: flex;
-    flex-direction:column;
+    justify-content: center;
     height: 126px;
     width: 100vw;
     background-color: rgba(0, 0, 0, 0.8);
@@ -11,17 +11,5 @@
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.social-media-icons-wrapper {
-    display: flex;
-    font-size: 30px;
-    align-items: center;
-    justify-content: space-between;
-
-    img {
-        height: 60px;
-        width: 60px;
-        
-    }
+    font-size: 40px;
 }

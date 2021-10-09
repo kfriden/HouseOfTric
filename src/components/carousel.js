@@ -11,6 +11,9 @@ export default class DemoCarousel extends Component {
                     <img src="assets/logo.jpg" />
                 </div>
                 <div>
+                    <img src="assets/aboutus.jpg" />
+                </div>
+                <div>
                     <img src="assets/1.jpg" />
                 </div>
                 <div>
