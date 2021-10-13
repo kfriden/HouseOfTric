@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
 import Icons from "./icons";
 import NoMatch from './noMatch';
 import Navigation from './navigation';
@@ -13,7 +14,7 @@ import Login from './login';
 import Footer from './footer';
 
 
-export default class App extends Component {
+class App extends Component {
   constructor(props) {
     super(props);
 
@@ -26,7 +27,7 @@ export default class App extends Component {
         <Router>
             <Navigation />
 
-            <Switch>
+            <Switch {...this.props}>
               <Route exact path="/" component={Home} />
               <Route exact path="/about" component={About} />
               <Route exact path="/members" component={Members} />
@@ -43,3 +44,11 @@ export default class App extends Component {
     );
   }
 }
+
+// mapStateToProps = state => {
+//   return {
+//     isAuthenticated: state.token !== null
+//   }
+// }
+
+export default connect(null)(App);

@@ -13,7 +13,7 @@ const createStoreWithMiddleware = applyMiddleware()(compose((window.devToolsExte
 
 function main() {
   ReactDOM.render(
-    <Provider store={createStoreWithMiddleware(reducers)}>
+    <Provider store={createStoreWithMiddleware(reducer)}>
       <BrowserRouter>
         <App />
       </BrowserRouter>

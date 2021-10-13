@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'members',
     'hotphotos',
     'corsheaders',
+    'rest_framework.authtoken',
+    'rest_auth'
 ]
 
 MIDDLEWARE = [
@@ -53,8 +55,10 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.common.CommonMiddleware'
+    
 ]
 
 ROOT_URLCONF = 'Hot_Auth.urls'
@@ -74,6 +78,25 @@ TEMPLATES = [
         },
     },
 ]
+
+CORS_ALLOWED_ORIGIN = [
+    'http://localhost:8000',
+    'http://localhost:8000/rest-auth/login/'
+]
+
+CORS_ALLOW_HEADERS = [
+'accept',
+'accept-encoding',
+'authorization',
+'content-type',
+'dnt',
+'origin',
+'user-agent',
+'x-csrftoken',
+'x-requested-with',
+]
+
+
 
 WSGI_APPLICATION = 'Hot_Auth.wsgi.application'
 
@@ -140,3 +163,5 @@ REST_FRAMEWORK = {
 
 MEDIA_ROOT =  os.path.join(BASE_DIR, 'images')
 MEDIA_URL = '/images/'
+ACCOUNT_AUTHENTICATION_METHOD = 'username'
+ACCOUNT_EMAIL_REQUIRED = False 

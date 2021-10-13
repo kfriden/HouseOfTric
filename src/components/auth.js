@@ -6,7 +6,7 @@ class Auth extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            email: '',
+            username: '',
             password: ''
         };
 
@@ -29,10 +29,10 @@ class Auth extends Component {
         event.preventDefault();
         //console.log("Handle submit", this.state.email, this.state.password);
         const data = {
-            email: this.email,
+            username: this.username,
             password: this.password
         }
-        axios.post("http://localhost:8000/login", data).then(
+        axios.post("http://localhost:8000/rest-auth/login", data).then(
             res => {
                 console.log(res)
             }
@@ -57,7 +57,7 @@ class Auth extends Component {
                 
                 <form className="auth-center" onSubmit={this.onSubmit}>
                     <h2>Login</h2>
-                    <input type="email" name="email" placeholder="Email" value={this.state.email} onChange={this.onChange} />
+                    <input type="username" name="username" placeholder="Username" value={this.state.username} onChange={this.onChange} />
                     <input type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.onChange} />
 
                     <div>
