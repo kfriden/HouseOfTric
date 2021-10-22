@@ -18,7 +18,23 @@ class App extends Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      loggedInStatus: "NOT_LOGGED_IN"
+    }
+
     Icons();
+  }
+
+  handleSuccessfulLogin() {
+    this.setState({
+      loggedInStatus: "LOGGED_IN"
+    })
+  }
+
+  handleUnSuccessfulLogin() {
+    this.setState({
+      loggedInStatus: "NOT_LOGGED_IN"
+    })
   }
 
   render() {

@@ -7,7 +7,8 @@ class Auth extends Component {
         super(props);
         this.state = {
             username: '',
-            password: ''
+            password: '',
+            errorText: ""
         };
 
         this.onSubmit = this.onSubmit.bind(this);
@@ -27,20 +28,32 @@ class Auth extends Component {
 
     onSubmit(event) {
         event.preventDefault();
-        //console.log("Handle submit", this.state.email, this.state.password);
+       
         const data = {
-            username: this.username,
-            password: this.password
+            username: this.state.username,
+            password: this.state.password
         }
-        axios.post("http://localhost:8000/rest-auth/login", data).then(
+        
+        console.log("Handle submit",data);
+        axios.post("http://localhost:8000/rest-auth/login/", data)
+        // fetch("http://localhost:8000/rest-auth/login/", {
+        //     method: "POST",
+        //     headers: { "content-type": "application/json" },
+        //     body: JSON.stringify(data)
+        // })
+        // .then(response => response.json())
+        .then(
             res => {
                 console.log(res)
-            }
-        ).catch(
-            err => {
-                console.log(err);
-            }
-        )
+            })
+        .catch(err => {
+            console.log(err);
+            this.setState({
+                errorText: "An error occured"
+            });
+        });
+            
+        
         
         
         
@@ -57,6 +70,7 @@ class Auth extends Component {
                 
                 <form className="auth-center" onSubmit={this.onSubmit}>
                     <h2>Login</h2>
+                    <div>{this.state.errorText}</div>
                     <input type="username" name="username" placeholder="Username" value={this.state.username} onChange={this.onChange} />
                     <input type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.onChange} />
 

@@ -8,14 +8,14 @@ class About extends Component {
         
         <img src={Group} className="group" />
 
-        <div class="squares-wrapper">
-        <div class="squares">
-            <div class="square">
-                <div class="img-wrapper">
+        <div className="squares-wrapper">
+        <div className="squares">
+            <div className="square">
+                <div className="img-wrapper">
                     <img src="assets/night.jpg" alt="nightfall"/>
                 </div>
 
-                <div class="square-text-wrapper">
+                <div className="square-text-wrapper">
                         <h1>Loyalty</h1>
                     <ul>
                         <li>The House of Tric is always loyal to their family </li>
@@ -25,7 +25,7 @@ class About extends Component {
                     </ul>
                 </div>
             </div>
-            <div class="square">
+            <div className="square">
                 <div class="square-text-wrapper">
                         <h1>Power</h1>
                     <ul>

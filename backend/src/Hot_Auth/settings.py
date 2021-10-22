@@ -26,8 +26,10 @@ SECRET_KEY = 'django-insecure-&hqis4-v9e(p65%)-$^io7rky!hthllf*=r^#$cz=&fxk^n0kp
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
 CORS_ORIGIN_ALLOW_ALL = True
+ALLOWED_HOSTS = ["*"]
+
+
 
 
 # Application definition
@@ -57,8 +59,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.middleware.common.CommonMiddleware'
-    
+    'corsheaders.middleware.CorsPostCsrfMiddleware',
+
 ]
 
 ROOT_URLCONF = 'Hot_Auth.urls'
@@ -79,10 +81,8 @@ TEMPLATES = [
     },
 ]
 
-CORS_ALLOWED_ORIGIN = [
-    'http://localhost:8000',
-    'http://localhost:8000/rest-auth/login/'
-]
+
+
 
 CORS_ALLOW_HEADERS = [
 'accept',
