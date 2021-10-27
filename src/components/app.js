@@ -12,6 +12,7 @@ import BlogDetail from './blogDetail';
 import Contact from './contact';
 import Login from './login';
 import Footer from './footer';
+import axios from 'axios';
 
 
 class App extends Component {
@@ -21,6 +22,9 @@ class App extends Component {
     this.state = {
       loggedInStatus: "NOT_LOGGED_IN"
     }
+
+    this.handleSuccessfulLogin = this.handleSuccessfulLogin.bind(this);
+    this.handleUnSuccessfulLogin = this.handleUnSuccessfulLogin.bind(this);
 
     Icons();
   }
@@ -37,11 +41,39 @@ class App extends Component {
     })
   }
 
+  checkLoginStatus() {
+    return axios.get("http://localhost:8000/rest-auth/login/", { withCredentials: true }).then(response => {
+      console.log("logged_in return", response);
+      const loggedIn = response.statusText;
+      const loggedInStatus = this.state.loggedInStatus;
+
+      if (loggedIn && loggedInStatus === "LOGGED_IN") {
+        return loggedIn;
+      } else if (loggedIn && loggedInStatus === "NOT_LOGGED_IN") {
+        this.setState({
+          loggedInStatus: "LOGGED_IN"
+        });
+      } else if (!loggedIn && loggedInStatus === "LOGGED_IN") {
+        this.setState({
+          loggedInStatus: "NOT_LOGGED_IN"
+        });
+      }
+    })
+    .catch(error => {
+      console.log("Error", error)
+    })
+  }
+
+  componentDidMount() {
+    this.checkLoginStatus();
+  }
+
   render() {
     return (
       <div className='app'>
         <Router>
             <Navigation />
+            <h2>{this.state.loggedInStatus}</h2>
 
             <Switch {...this.props}>
               <Route exact path="/" component={Home} />
@@ -50,7 +82,16 @@ class App extends Component {
               <Route exact path="/blog" component={Blog} />
               <Route exact path="/blog/:slug" component={BlogDetail} />
               <Route exact path="/contact" component={Contact} />
-              <Route exact path="/login" component={Login} />
+
+              <Route exact path="/login" render={props => (
+                <Login
+                  {...props}
+                  handleSuccessfulLogin ={this.handleSuccessfulLogin}
+                  handleUnSuccessfulLogin ={this.handleUnSuccessfulLogin}
+                  />
+              )}
+            />
+
               <Route component={NoMatch} />
             </Switch>
 

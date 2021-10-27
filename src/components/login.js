@@ -3,6 +3,22 @@ import Auth from './auth';
 import Juan from '../../static/assets/juan-auth.jpg';
 
 class Login extends Component {
+    constructor(props) {
+        super(props);
+
+        this.handleSuccessfulAuth = this.handleSuccessfulAuth.bind(this);
+        this.handleUnSuccessfulAuth = this.handleUnSuccessfulAuth.bind(this);
+    }
+
+    handleSuccessfulAuth() {
+        this.props.handleSuccessfulLogin();
+        this.props.history.push("/");
+    }
+
+    handleUnSuccessfulAuth() {
+        this.props.handleUnSuccessfulLogin();
+    }
+
     render() {
         return (
             <div className="login-layout">
@@ -10,7 +26,10 @@ class Login extends Component {
                     <img src={Juan} />
                 </div>
                 
-                <Auth />
+                <Auth
+                    handleSuccessfulAuth={this.handleSuccessfulAuth}
+                    handleUnSuccessfulAuth={this.handleUnSuccessfulAuth}
+                />
                 <div className="right-column">
                     <img src={Juan} />
                 </div>

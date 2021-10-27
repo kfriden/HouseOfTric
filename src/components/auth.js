@@ -2,6 +2,7 @@ import React, { Component }  from 'react';
 import validateInput from './validate';
 import axios from 'axios';
 
+
 class Auth extends Component {
     constructor(props) {
         super(props);
@@ -14,7 +15,7 @@ class Auth extends Component {
         this.onSubmit = this.onSubmit.bind(this);
         this.onChange = this.onChange.bind(this);
     }
-
+  
     isValid() {
         const { errors, isValid } = validateInput(this.state);
 
@@ -45,12 +46,22 @@ class Auth extends Component {
         .then(
             res => {
                 console.log(res)
+                if (res.statusText === "OK") {
+                    console.log("You can come in...");
+                    this.props.handleSuccessfulAuth();
+                } else {
+                    this.setState({
+                        errorText: "Wrong email or password"
+                    });
+                    this.props.handleUnSuccessfulAuth();
+                }
             })
         .catch(err => {
             console.log(err);
             this.setState({
                 errorText: "An error occured"
             });
+            this.props.handleUnSuccessfulAuth();
         });
             
         
