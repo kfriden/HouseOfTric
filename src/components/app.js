@@ -20,66 +20,81 @@ class App extends Component {
     super(props);
 
     this.state = {
-      loggedInStatus: "NOT_LOGGED_IN"
+      loggedInStatus: "logout"
     }
 
     this.handleSuccessfulLogin = this.handleSuccessfulLogin.bind(this);
     this.handleUnSuccessfulLogin = this.handleUnSuccessfulLogin.bind(this);
+    this.handleLogout = this.handleLogout.bind(this);
 
     Icons();
   }
 
   handleSuccessfulLogin() {
     this.setState({
-      loggedInStatus: "LOGGED_IN"
+      loggedInStatus: "login"
     })
   }
 
   handleUnSuccessfulLogin() {
     this.setState({
-      loggedInStatus: "NOT_LOGGED_IN"
+      loggedInStatus: "logout"
     })
   }
 
-  checkLoginStatus() {
-    return axios.get("http://localhost:8000/rest-auth/login/", { withCredentials: true }).then(response => {
-      console.log("logged_in return", response);
-      const loggedIn = response.statusText;
-      const loggedInStatus = this.state.loggedInStatus;
-
-      if (loggedIn && loggedInStatus === "LOGGED_IN") {
-        return loggedIn;
-      } else if (loggedIn && loggedInStatus === "NOT_LOGGED_IN") {
-        this.setState({
-          loggedInStatus: "LOGGED_IN"
-        });
-      } else if (!loggedIn && loggedInStatus === "LOGGED_IN") {
-        this.setState({
-          loggedInStatus: "NOT_LOGGED_IN"
-        });
-      }
-    })
-    .catch(error => {
-      console.log("Error", error)
+  handleLogout() {
+    this.setState({
+      loggedInStatus: "logout"
     })
   }
 
-  componentDidMount() {
-    this.checkLoginStatus();
+  // checkLoginStatus() {
+  //   fetch("http://localhost:8000/rest-auth/login/").then(response => {
+  //     console.log("logged_in return", response);
+  //     const loggedIn = response.statusText;
+  //     const loggedInStatus = this.state.loggedInStatus;
+
+  //     if (loggedIn && loggedInStatus === "login") {
+  //       return loggedIn;
+  //     } else if (loggedIn && loggedInStatus === "NOT_LOGGED_IN") {
+  //       this.setState({
+  //         loggedInStatus: "LOGGED_IN"
+  //       });
+  //     } else if (!loggedIn && loggedInStatus === "LOGGED_IN") {
+  //       this.setState({
+  //         loggedInStatus: "NOT_LOGGED_IN"
+  //       });
+  //     }
+  //   })
+  //   .catch(error => {
+  //     console.log("Error", error)
+  //   })
+  // }
+
+  // componentDidMount() {
+  //   this.checkLoginStatus();
+  // }
+
+  authorizedPages() {
+    return [
+      <Route exact path="/blog" component={Blog} />
+    ]
   }
 
   render() {
     return (
       <div className='app'>
         <Router>
-            <Navigation />
+            <Navigation 
+            loggedInStatus={this.state.loggedInStatus}
+            handleLogout={this.handleLogout} />
             <h2>{this.state.loggedInStatus}</h2>
 
             <Switch {...this.props}>
               <Route exact path="/" component={Home} />
               <Route exact path="/about" component={About} />
               <Route exact path="/members" component={Members} />
-              <Route exact path="/blog" component={Blog} />
+              {this.state.loggedInStatus === "login" ? this.authorizedPages() : null}
               <Route exact path="/blog/:slug" component={BlogDetail} />
               <Route exact path="/contact" component={Contact} />
 

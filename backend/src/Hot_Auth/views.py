@@ -1,6 +1,6 @@
-from rest_framework import status , generics , mixins
+from rest_framework import APIView
 
-class user_list(mixins.ListModelMixin,mixins.CreateModelMixin,generics.GenericAPIView):
+class user_list(APIView):
 
     queryset = Users.objects.all()
     serializer_class = UsersSerializer
