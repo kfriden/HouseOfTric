@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import NoAccess from '../../static/assets/unauthorized.jpg';
 
 export default function() {
     return (
         <div>
-            <h2>We couldn't find that page</h2>
-            <Link to='/'>Return to Homepage</Link> 
+            <img src={NoAccess} className="unauthorized" />
         </div>
     )
 }

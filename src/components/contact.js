@@ -14,9 +14,9 @@ class About extends Component {
         <div className="socials">
           <h1>Find us on Social Media!</h1>
             <div className="social-icons">
-              <img src="assets/download.png" />
-              <img src="assets/instagram.png" />
-              <img src="assets/facebook.png" />
+              <a href="https://www.tiktok.com/@houseoftric" target="_blank"><img src="assets/download.png" /></a>
+              <a href="https://www.instagram.com/houseoftric/" target="_blank"><img src="assets/instagram.png" /></a>
+              <a><img src="assets/facebook.png" /></a>
             </div>
 
             <div className="picture-contact">

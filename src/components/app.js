@@ -56,13 +56,13 @@ class App extends Component {
 
   //     if (loggedIn && loggedInStatus === "login") {
   //       return loggedIn;
-  //     } else if (loggedIn && loggedInStatus === "NOT_LOGGED_IN") {
+  //     } else if (loggedIn && loggedInStatus === "logout") {
   //       this.setState({
-  //         loggedInStatus: "LOGGED_IN"
+  //         loggedInStatus: "login"
   //       });
-  //     } else if (!loggedIn && loggedInStatus === "LOGGED_IN") {
+  //     } else if (!loggedIn && loggedInStatus === "login") {
   //       this.setState({
-  //         loggedInStatus: "NOT_LOGGED_IN"
+  //         loggedInStatus: "logout"
   //       });
   //     }
   //   })
