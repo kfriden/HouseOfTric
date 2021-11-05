@@ -48,32 +48,32 @@ class App extends Component {
     })
   }
 
-  // checkLoginStatus() {
-  //   fetch("http://localhost:8000/rest-auth/login/").then(response => {
-  //     console.log("logged_in return", response);
-  //     const loggedIn = response.statusText;
-  //     const loggedInStatus = this.state.loggedInStatus;
+  checkLoginStatus() {
+    fetch("http://localhost:8000/rest-auth/login/").then(response => {
+      console.log("logged_in return", response);
+      const loggedIn = response.statusText;
+      const loggedInStatus = this.state.loggedInStatus;
 
-  //     if (loggedIn && loggedInStatus === "login") {
-  //       return loggedIn;
-  //     } else if (loggedIn && loggedInStatus === "logout") {
-  //       this.setState({
-  //         loggedInStatus: "login"
-  //       });
-  //     } else if (!loggedIn && loggedInStatus === "login") {
-  //       this.setState({
-  //         loggedInStatus: "logout"
-  //       });
-  //     }
-  //   })
-  //   .catch(error => {
-  //     console.log("Error", error)
-  //   })
-  // }
+      if (loggedIn && loggedInStatus === "login") {
+        return loggedIn;
+      } else if (loggedIn && loggedInStatus === "logout") {
+        this.setState({
+          loggedInStatus: "login"
+        });
+      } else if (!loggedIn && loggedInStatus === "login") {
+        this.setState({
+          loggedInStatus: "logout"
+        });
+      }
+    })
+    .catch(error => {
+      console.log("Error", error)
+    })
+  }
 
-  // componentDidMount() {
-  //   this.checkLoginStatus();
-  // }
+  componentDidMount() {
+    this.checkLoginStatus();
+  }
 
   authorizedPages() {
     return [
